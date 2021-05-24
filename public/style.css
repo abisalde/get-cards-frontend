@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .test {
+        display: none !important;
+        padding-left: 0.22rem;
+    }
+}
