@@ -8,20 +8,26 @@
     <title>Mini GitHub Profile</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/public/assets/css/style.css">
 </head>
 
 <body>
     <!-- HEADER STARTS HERE-->
     <header>
         <div class="wrapper">
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
             <div class="home">
-                <i style="background-color: black; color: white;" class="fab fa-github fa-2x"></i>
+                <i class="fab fa-github fa-2x"></i>
             </div>
             <div class="search">
                 <form id="search">
                     <div class="form-group">
-                        <input type="text" name="search" placeholder="search">
+                        <input type="text" name="search" placeholder="Search or jump to..." />
+                        <img src="/public/assets/images/search-key.svg" alt="github_search" />
                     </div>
                 </form>
             </div>
@@ -35,7 +41,7 @@
                 <a href="#">Sponsors</a>
                 <a href="#">Settings</a>
                 <a href="#">
-                    <img src="" alt="">
+                    <img src="/public/assets/images/profile_image.png" alt="github_user_image">
                     abisalde
                 </a>
                 <a href="#"><i class="far fa-sign-out"></i>Sign out</a>
@@ -58,7 +64,7 @@
                     <i class="fas fa-sort-down"></i>
                 </div>
                 <div class="profile_summary">
-                    <img src="" alt="">
+                    <img src="/public/assets/images/profile_image.png" alt="github_user_image">
                     <i class="fas fa-sort-down"></i>
                 </div>
             </div>
@@ -124,8 +130,8 @@
                             <img src="" alt="">
                         </a>
                     </div>
-                    <h3>Isaiah Abiodun</h3>
-                    <h5>abisalde</h5>
+                    <h1>Isaiah Abiodun</h1>
+                    <h3>abisalde</h3>
                 </div>
                 <div class="profile_status">
                     <div class="profile_circle">
@@ -137,10 +143,54 @@
                         </svg>
                     </div>
                 </div>
+                <div class="profile_desc">
+                    <p>JavaScript Developer | IT Support Engineer</p>
+                </div>
             </div>
 
             <div class="breadcrumbs_contents">
-
+                <form>
+                    <div class="form-group">
+                        <input type="text" name="search" placeholder="Find a repository" />
+                    </div>
+                </form>
+                <div>
+                    <div class="repositories">
+                        <ul class="repos_list">
+                            <li class="repo">
+                                <div class="repo_details">
+                                    <div class="repo_heading">
+                                        <h3>
+                                            <a href="#">gatsby-single-page</a>
+                                        </h3>
+                                    </div>
+                                    <div>
+                                        <p class="repo_desc">Testing fake data and displaying the data with UI and a
+                                            little bit of UX</p>
+                                    </div>
+                                    <div class="lang_fork_date">
+                                        <span class="programming_lang">JavaScript</span>
+                                        <span class="starred" value="2">
+                                            <i class="fal fa-star"></i> 2
+                                        </span>
+                                        <span class="repo_fork" value="2">
+                                            <svg aria-label="fork" role="img" viewBox="0 0 16 16" version="1.1"
+                                                data-view-component="true" height="16" width="16"
+                                                class="octicon octicon-repo-forked">
+                                                <path fill-rule="evenodd"
+                                                    d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z">
+                                                </path>
+                                            </svg>
+                                            2
+                                        </span>
+                                        <span>Updated on <time datetime="2001-05-15T19:00">May 15</time> </span>
+                                    </div>
+                                </div>
+                                <div class="repo_star"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

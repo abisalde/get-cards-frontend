@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-header-text: #fffff1;
+    --color-header-bg: #24292e;
+}
+
+/** HEADER STYLE BEGINS HERE */
+header {
+    display: flex;
+    align-items: center;
+    z-index: 30;
+    padding: 1rem;
+    line-height: 1.6;
+    color: var(--color-header-text);
+    background-color: var(--color-header-bg);
+}
+
+/** NAVBAR BUTTON */
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 1.5625rem;
+    height: 0.125rem;
+    margin: 0.3125rem auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
+}
+
+@media screen and (min-width: 768px) {
+    .test {
+        display: none !important;
+        padding-left: 0.22rem;
+    }
+}
