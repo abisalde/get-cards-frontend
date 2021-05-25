@@ -1,0 +1,36 @@
+/** HEADER STYLE BEGINS HERE */
+header {
+    display: flex;
+    align-items: center;
+    z-index: 30;
+    padding: 1rem;
+    line-height: 1.6;
+    color: var(--color-header-text);
+    background-color: var(--color-header-bg);
+    width: 100vw;
+}
+
+.main_nav {
+    display: flex;
+}
+
+.main_links {
+    white-space: nowrap;
+    color: var(--color-header-links);
+    font-weight: 600;
+}
+
+/** NAVBAR BUTTON */
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 1.5625rem;
+    height: 0.125rem;
+    margin: 0.3125rem auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--color-header-links);
+}
