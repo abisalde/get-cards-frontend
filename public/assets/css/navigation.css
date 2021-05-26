@@ -20,6 +20,10 @@ header {
     font-weight: 600;
 }
 
+.home.mobile {
+    display: none;
+}
+
 /** NAVBAR BUTTON */
 .hamburger {
     display: none;

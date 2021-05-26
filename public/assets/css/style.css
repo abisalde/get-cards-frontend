@@ -36,3 +36,14 @@ a {
     margin-right: auto;
     margin-left: auto;
 }
+
+img {
+    display: inline-block;
+    line-height: 1;
+    border-radius: 50%;
+    vertical-align: middle;
+    height: auto;
+    box-shadow: 0 0 0 1px transparent;
+    width: 100%;
+    border-style: none;
+}
