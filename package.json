@@ -1,24 +1,24 @@
 {
-  "name": "getcard",
-  "version": "1.0.0",
-  "description": "Get Cards Frontend Challenge",
-  "main": "index.js",
-  "author": "@abisalde",
-  "license": "MIT",
-  "private": null,
-  "scripts": {
-    "test": "npm start"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/abisalde/get-cards-frontend.git"
-  },
-  "keywords": [
-    "JavaScript",
-    "GraphQL"
-  ],
-  "bugs": {
-    "url": "https://github.com/abisalde/get-cards-frontend/issues"
-  },
-  "homepage": "https://github.com/abisalde/get-cards-frontend#readme"
+    "name": "getcard",
+    "version": "1.0.0",
+    "description": "Get Cards Frontend Challenge",
+    "main": "index.js",
+    "author": "@abisalde",
+    "license": "MIT",
+    "private": false,
+    "scripts": {
+        "test": "npm start"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/abisalde/get-cards-frontend.git"
+    },
+    "keywords": [
+        "JavaScript",
+        "GraphQL"
+    ],
+    "bugs": {
+        "url": "https://github.com/abisalde/get-cards-frontend/issues"
+    },
+    "homepage": "https://github.com/abisalde/get-cards-frontend#readme"
 }
