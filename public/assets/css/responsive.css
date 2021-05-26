@@ -10,6 +10,35 @@
     .main_nav {
         flex-direction: column;
     }
+
+    .breadcrumbs {
+        flex-flow: column;
+    }
+
+    .page_contents {
+        flex-flow: column;
+    }
+
+    section.breadcrumbs_top.desktop {
+        display: none;
+    }
+
+    .breadcrumbs_top.mobile {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 576px) {
+    .header_wrapper {
+        max-width: 540px;
+    }
+
+    .breadcrumbs {
+        flex-flow: column;
+    }
+    section.breadcrumbs_top.mobile {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -17,10 +46,8 @@
         display: none !important;
         padding-left: 0.22rem;
     }
-}
 
-@media only screen and (min-width: 576px) {
-    .header_wrapper {
-        max-width: 540px;
+    section.profile_repo {
+        width: 25%;
     }
 }
