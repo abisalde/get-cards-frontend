@@ -51,10 +51,9 @@ header {
     align-self: stretch;
 }
 
-.form_group:focus {
-    border-color: #0366d6;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3);
+.breadcrumbs_form_control label {
+    background: none;
+    border: none;
 }
 
 label[for='search'] {

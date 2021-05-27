@@ -306,12 +306,15 @@ button.btn {
     font-weight: 500;
 }
 
-
-
 .breadcrumbs_form_control {
-    -webkit-appearance: textfield;
-    outline-offset: -2px;
+    border: 0.0625rem solid #e1e4e8;
     background-color: #ffffff;
     background-repeat: no-repeat;
     background-position: right 0.5rem center;
     color: #000000;
+}
+
+.breadcrumbs_form_control > label[for='search'] {
+    background-color: none;
+    border: none;
+}
