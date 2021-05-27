@@ -20,5 +20,9 @@
     "bugs": {
         "url": "https://github.com/abisalde/get-cards-frontend/issues"
     },
-    "homepage": "https://github.com/abisalde/get-cards-frontend#readme"
+    "homepage": "https://github.com/abisalde/get-cards-frontend#readme",
+    "dependencies": {
+        "apollo-server": "^2.24.1",
+        "graphql": "^15.5.0"
+    }
 }

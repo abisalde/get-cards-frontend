@@ -68,6 +68,15 @@
         margin-bottom: 1.5rem;
         align-items: center;
     }
+
+    .fullname_username {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .profile_img {
+        width: 16.66667%;
+    }
 }
 
 @media only screen and (min-width: 576px) {

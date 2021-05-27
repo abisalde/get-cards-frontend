@@ -138,9 +138,12 @@ section.profile_repo {
     margin-right: 1rem;
 }
 
-.user_profile_link img {
+.profile_image_link img {
     width: 260px;
     height: 260px;
+    flex-shrink: 0;
+    width: 100%;
+    height: auto;
 }
 
 .profile_status {
@@ -262,6 +265,7 @@ section.breadcrumbs_contents {
     font-size: 0.75rem;
     margin-top: 0.5rem;
     align-items: center;
+    flex-flow: wrap;
 }
 
 .programming_lang,
@@ -292,7 +296,7 @@ button.btn {
     line-height: 1.25rem;
     color: #24292e;
     background-color: #fafbfc;
-    border-color: rgba(27, 31, 35, 0.15);
+    border-color: #e1e4e8;
     box-shadow: 0 0.0625rem 0 rgba(27, 31, 35, 0.04),
         inset 0 0.0625rem 0 #d5d5cc;
     transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
@@ -306,15 +310,21 @@ button.btn {
     font-weight: 500;
 }
 
+.btn:hover {
+    background-color: #ebecf0;
+    transition: none;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: rgba(27, 31, 35, 0.15);
+}
+
 .breadcrumbs_form_control {
     border: 0.0625rem solid #e1e4e8;
     background-color: #ffffff;
     background-repeat: no-repeat;
     background-position: right 0.5rem center;
     color: #000000;
-}
-
-.breadcrumbs_form_control > label[for='search'] {
-    background-color: none;
-    border: none;
 }
