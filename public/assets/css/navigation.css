@@ -18,10 +18,109 @@ header {
     white-space: nowrap;
     color: var(--color-header-links);
     font-weight: 600;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .home.mobile {
     display: none;
+}
+
+.home.desktop {
+    margin-right: 1rem;
+    display: flex;
+    align-self: stretch;
+    flex-wrap: nowrap;
+}
+
+.search_nav {
+    display: flex;
+    flex-wrap: nowrap;
+    order: 2;
+    width: 100%;
+    flex-direction: row;
+}
+
+.search {
+    position: relative;
+    max-width: 100%;
+    transition: 0.2s ease-in-out;
+    transition-property: max-width, padding-bottom, padding-top;
+    margin-bottom: 1rem;
+    margin-right: 0rem;
+    align-self: stretch;
+}
+
+.form_group:focus {
+    border-color: #0366d6;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3);
+}
+
+label[for='search'] {
+    min-height: 1.75rem;
+    display: flex;
+    align-items: center;
+    align-self: auto;
+    padding: 0;
+    width: 100%;
+    font-size: inherit;
+    font-weight: 400;
+    color: #fff;
+    vertical-align: middle;
+    background-color: #24292e;
+    border: 0.0625rem solid #444d56;
+    box-shadow: none;
+    border-radius: 0.375rem;
+    outline: none;
+}
+
+.form_control {
+    display: table-cell;
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: inherit;
+    background: none;
+    min-height: 1.75rem;
+    border-radius: 0.375rem;
+    outline: none;
+    border: 0;
+    box-shadow: none;
+    background-position: right 0.5rem center;
+    padding: 0.212rem 0.451rem;
+}
+
+.form_control:focus {
+    border-color: #0366d6;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3);
+    background-color: #fff;
+}
+
+label[for='search'] > object {
+    padding: 0 0.451rem;
+}
+
+.main_nav {
+    display: flex;
+    align-self: stretch;
+}
+
+.create {
+    cursor: pointer;
+}
+
+.create i {
+    padding-right: 0.415rem;
+}
+
+.create i:nth-child(2),
+.profile_summary i {
+    margin-top: -0.225rem;
+}
+.profile_summary i {
+    margin-left: 0.325rem;
 }
 
 /** NAVBAR BUTTON */
@@ -37,4 +136,10 @@ header {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     background-color: var(--color-header-links);
+}
+
+@media screen and (max-width: 768px) {
+    .only_768 {
+        display: none;
+    }
 }

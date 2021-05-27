@@ -11,46 +11,10 @@
         flex-direction: column;
         display: none;
     }
-<<<<<<< HEAD
     .search,
     .create,
     .profile_summary,
     .home.desktop {
-=======
-
-    .breadcrumbs {
-        flex-flow: column;
-    }
-
-    .page_contents {
-        flex-flow: column;
-    }
-
-    section.breadcrumbs_top.desktop {
-        display: none;
-    }
-
-    .breadcrumbs_top.mobile {
-        display: block;
-    }
-}
-
-@media only screen and (min-width: 576px) {
-    .header_wrapper {
-        max-width: 540px;
-    }
-
-    .breadcrumbs {
-        flex-flow: column;
-    }
-    section.breadcrumbs_top.mobile {
-        display: none;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .test {
->>>>>>> 798219a716782eef386e31a44044d4dbb9bfe674
         display: none !important;
     }
 
@@ -71,9 +35,156 @@
     }
 
     section.profile_repo {
-        width: 25%;
+        width: 100%;
+    }
+
+    section.breadcrumbs_contents {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .user_repositories {
+        width: 100%;
+    }
+
+    .breadcrumbs {
+        flex-flow: column;
+    }
+
+    .page_contents {
+        flex-flow: column;
+    }
+
+    section.breadcrumbs_top.desktop {
+        display: none;
+    }
+
+    .breadcrumbs_top.mobile {
+        display: block;
+    }
+
+    .image_username {
+        display: flex;
+        margin-bottom: 1.5rem;
+        align-items: center;
     }
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (min-width: 576px) {
+    .header_wrapper {
+        max-width: 540px;
+    }
+
+    .breadcrumbs {
+        flex-flow: column;
+    }
+    section.breadcrumbs_top.mobile {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .home.desktop {
+        margin-bottom: -0.25rem;
+        margin-top: -0.25rem;
+    }
+
+    header {
+        flex-wrap: nowrap !important;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .search_nav {
+        order: inherit;
+        margin-right: 1rem;
+    }
+
+    .search {
+        max-width: 272px;
+        margin-right: 1rem;
+        margin-bottom: 0rem;
+        align-self: auto;
+    }
+
+    .desktop_none {
+        display: none;
+    }
+
+    .main_nav {
+        align-self: auto;
+        flex-direction: row;
+    }
+
+    .main_links {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-top: 0;
+        margin-right: 1rem;
+        margin-bottom: -1rem;
+        margin-top: -1rem;
+    }
+
+    .only_768 {
+        padding-left: 0.3125rem;
+    }
+
+    .notification,
+    .create,
+    .profile_summary {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        margin-right: 1rem;
+        order: inherit;
+    }
+
+    .profile_summary img {
+        height: 1.35rem;
+        width: 1.35rem;
+    }
+
+    section.profile_repo {
+        margin-bottom: 0;
+        width: 25%;
+    }
+
+    .image_username {
+        display: block !important;
+        margin-bottom: 0rem;
+    }
+
+    .user_profile_details {
+        margin-top: -2rem;
+    }
+
+    .profile_img {
+        margin-right: 0 !important;
+    }
+
+    .fullname_username {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        float: 0;
+    }
+
+    .profile_desc_bio {
+        overflow: hidden;
+        font-size: 1rem;
+    }
+
+    section.breadcrumbs_contents {
+        margin-bottom: 0;
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    header {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
 }
