@@ -1,32 +1,31 @@
 const dataSchema = {
-    query: `{
-        viewer {
-        login
+    query: `{ 
+        user(login: "${username}") {
+        name
         avatarUrl
         bio
         name
-        repositories(affiliations: OWNER, last: 20) {
+        repositories(privacy: PUBLIC, first: 20, orderBy: {direction: DESC, field: CREATED_AT}) {
             totalCount
-            edges {
-            node {
-                name
-                updatedAt
-                stargazerCount
-                forkCount
-                description
-                url
-                languages(first: 1) {
                 edges {
-                    node {
-                    color
+                node {
                     name
+                    updatedAt
+                    stargazerCount
+                    forkCount
+                    description
+                    url
+                    languages(first: 1) {
+                    edges {
+                        node {
+                        color
+                        name
+                        }
+                    }
+                    }
                     }
                 }
-                }
-            }
-            }
         }
-        location
         }
     }`,
 };

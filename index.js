@@ -1,39 +1,32 @@
 const express = require('express');
-const app = express();
-const query = require('./query');
-const url = 'https://api.github.com/graphql';
+const dataSchema = require('./src/utils/data');
 const fetch = require('node-fetch');
 require('dotenv').config();
+const endpoint = 'https://api.github.com/graphql';
+const app = express();
 
-console.log(process.env);
+const TOKEN = process.env.TOKEN;
 
-const PORT = process.env.PORT || 500;
-
-const ACCESS_TOKEN = process.env.GITHUB_TOKEN;
-
-const body = JSON.stringify(query);
+const body = JSON.stringify(dataSchema);
 
 const options = {
-    method: 'post',
+    method: 'POST',
     headers: {
         'Content-Type': 'application/json',
-        Authorization: `bearer ${ACCESS_TOKEN}`,
+        Authorization: `bearer ${TOKEN}`,
     },
     body: body,
 };
 
-app.use(express.static('frontend'));
+app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    res.sendFile('index.js');
-});
-
-app.get('/profiledata', (request, response) => {
-    fetch(url, options)
+app.get('/data', (request, response) => {
+    fetch(endpoint, options)
         .then((res) => res.json())
         .then((json) => response.json(json));
 });
 
+const PORT = 5000;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`app listening on port ${PORT}`);
 });

@@ -8,7 +8,7 @@ const typeDefs = `
 
 const resolvers = {
     Query: {
-        info: () => null,
+        info: () => `What's going here`,
     },
 };
 

@@ -147,14 +147,13 @@ section.profile_repo {
 }
 
 .profile_status {
+    display: flex;
+    align-items: center;
     position: absolute;
-    top: 19rem;
-    left: 25rem;
+    top: 71%;
+    right: 0rem;
     z-index: 4;
-    width: 3.375rem;
-    height: 3.375rem;
-    margin-bottom: 2rem;
-    margin-left: -2.5rem;
+    cursor: pointer;
 }
 
 .profile_circle {
