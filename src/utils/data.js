@@ -1,6 +1,6 @@
 const dataSchema = {
     query: `{ 
-        user(login: "${username}") {
+        user(login: "abisalde") {
         name
         avatarUrl
         bio
