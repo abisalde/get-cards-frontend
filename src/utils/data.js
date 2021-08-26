@@ -5,6 +5,17 @@ const dataSchema = {
         avatarUrl
         bio
         name
+        followers {
+            totalCount
+            }
+        following {
+        totalCount
+            }
+        starredRepositories {
+        totalCount
+            }
+        location
+        twitterUsername
         repositories(privacy: PUBLIC, first: 20, orderBy: {direction: DESC, field: CREATED_AT}) {
             totalCount
                 edges {
