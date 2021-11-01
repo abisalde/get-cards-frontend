@@ -12,6 +12,7 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
     <script src="https://tylermcginnis.com/goals-todos-api/index.js"></script>
     <script src="https://unpkg.com/redux-thunk@2.2.0/dist/redux-thunk.min.js"></script>
+    <script src="https://unpkg.com/react-redux@5.0.6/dist/react-redux.min.js"></script>
 </head>
 
 <body>
@@ -295,20 +296,25 @@
             }
         }
 
-        class ConnectedTodos extends React.Component {
-            render() {
-                return (
-                    <Context.Consumer>
-                        {
-                            (store) => {
-                                const { todos } = store.getState();
-                                return <Todos todos={todos} dispatch={store.dispatch} />
-                            }
-                        }
-                    </Context.Consumer>
-                )
-            }
-        }
+        // class ConnectedTodos extends React.Component {
+        //     render() {
+        //         return (
+        //             <Context.Consumer>
+        //                 {
+        //                     (store) => {
+        //                         const { todos } = store.getState();
+        //                         return <Todos todos={todos} dispatch={store.dispatch} />
+        //                     }
+        //                 }
+        //             </Context.Consumer>
+        //         )
+        //     }
+        // }
+
+
+        const ConnectedTodos = connect((state) => ({
+            todos: state.todos
+        }))(Todos);
 
         class Goals extends React.Component {
             addItem = (e) => {
@@ -343,35 +349,40 @@
             }
         }
 
-        class ConnectedGoals extends React.Component {
-            render() {
-                return (
-                    <Context.Consumer>
-                        {
-                            (store) => {
-                                const { goals } = store.getState();
-                                return <Goals goals={goals} dispatch={store.dispatch} />
-                            }
-                        }
-                    </Context.Consumer>
-                )
-            }
-        }
+
+        // class ConnectedGoals extends React.Component {
+        //     render() {
+        //         return (
+        //             <Context.Consumer>
+        //                 {
+        //                     (store) => {
+        //                         const { goals } = store.getState();
+        //                         return <Goals goals={goals} dispatch={store.dispatch} />
+        //                     }
+        //                 }
+        //             </Context.Consumer>
+        //         )
+        //     }
+        // }
+
+        const ConnectedGoals = connect((state) => ({
+            goals: state.goals
+        }))(Goals);
 
         class App extends React.Component {
             componentDidMount() {
-                const { store } = this.props;
+                const { dispatch } = this.props;
 
-                store.dispatch(handleReceiveData());
+                dispatch(handleReceiveData());
 
-                store.subscribe(() => this.forceUpdate())
+                // store.subscribe(() => this.forceUpdate())
             }
 
             render() {
-                const { store } = this.props;
-                const { loading } = store.getState();
+                // const { store } = this.props;
+                // const { loading } = store.getState();
 
-                if (loading === true) {
+                if (this.props.loading === true) {
                     return <h3>Loading...</h3>
                 }
 
@@ -384,19 +395,61 @@
             }
         }
 
-        class ConnectedApp extends React.Component {
-            render() {
-                return (
-                    <Context.Consumer>
-                        {
-                            (store) => <App store={store} />
-                        }
-                    </Context.Consumer>
-                )
-            }
-        }
+        // class ConnectedApp extends React.Component {
+        //     render() {
+        //         return (
+        //             <Context.Consumer>
+        //                 {
+        //                     (store) => <App store={store} />
+        //                 }
+        //             </Context.Consumer>
+        //         )
+        //     }
+        // }
+
+        const ConnectedApp = connect((state) => ({
+            loading: state.loading,
+        }))(App);
 
         const Context = React.createContext();
+
+        function connect(mapStateToProps) {
+            return (Component) => {
+
+                class Receiver extends React.Component {
+                    componentDidMount() {
+                        const { subscribe } = this.props.store;
+                        this.unsubscribe = subscribe(() => { this.forceUpdate() })
+                    }
+
+                    componentWillUnmount() {
+                        this.unsubscribe();
+                    }
+
+                    render() {
+                        const { dispatch, getState } = this.props.store;
+                        const state = getState();
+                        const stateNeeded = mapStateToProps(state);
+                        return (
+                            <Component {...stateNeeded} dispatch={dispatch} />
+                        )
+                    }
+                }
+
+                class ConnectedComponent extends React.Component {
+                    render() {
+                        return (
+                            <Context.Consumer>
+                                {
+                                    (store) => <Receiver store={store} />
+                                }
+                            </Context.Consumer>
+                        )
+                    }
+                }
+                return ConnectedComponent;
+            }
+        }
 
         class Provider extends React.Component {
             render() {
