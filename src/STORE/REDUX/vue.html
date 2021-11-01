@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div id="app">
+        <sum v-bind="data" />
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.5/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    data: { a: 1, b: 2, c: 3 },
+                };
+            },
+        })
+            .component("sum", {
+                template: `{{ a + $props.b + $props.c }}`,
+            })
+            .mount("#app");
+    </script>
+</body>
+
+</html>

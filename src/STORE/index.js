@@ -1,36 +1,36 @@
 // Library Code
-const createStore = (reducer) => {
-    // The Store should have four parts:
+// const createStore = (reducer) => {
+//     // The Store should have four parts:
 
-    // 1. The state
-    // 2. Get the state
-    // 3. Listen for changes on the state
-    // 4. Update the state
+//     // 1. The state
+//     // 2. Get the state
+//     // 3. Listen for changes on the state
+//     // 4. Update the state
 
-    let state;
-    let listeners = [];
-    const getState = () => state;
+//     let state;
+//     let listeners = [];
+//     const getState = () => state;
 
-    const subscribe = (listener) => {
-        listeners.push(listener);
+//     const subscribe = (listener) => {
+//         listeners.push(listener);
 
-        return () => {
-            listeners = listeners.filter((l) => l !== listener);
-        };
-    };
+//         return () => {
+//             listeners = listeners.filter((l) => l !== listener);
+//         };
+//     };
 
-    const dispatch = (action) => {
-        state = reducer(state, action);
+//     const dispatch = (action) => {
+//         state = reducer(state, action);
 
-        listeners.forEach((listener) => listener());
-    };
+//         listeners.forEach((listener) => listener());
+//     };
 
-    return {
-        getState,
-        subscribe,
-        dispatch,
-    };
-};
+//     return {
+//         getState,
+//         subscribe,
+//         dispatch,
+//     };
+// };
 
 // AppCode
 
@@ -107,14 +107,64 @@ const goals = (state = [], action) => {
     }
 };
 
-const app = (state = {}, action) => {
-    return {
-        todos: todos(state.todos, action),
-        goals: goals(state.goals, action),
-    };
+// const app = (state = {}, action) => {
+//     return {
+//         todos: todos(state.todos, action),
+//         goals: goals(state.goals, action),
+//     };
+// };
+
+// const checkAndDispatch = (store, action) => {
+//     if (
+//         action.type === ADD_TODO &&
+//         action.todo.name.toLowerCase().includes('bitcoin')
+//     ) {
+//         return alert('Nope. Bitcoin no allowed.');
+//     }
+
+//     if (
+//         action.type === ADD_GOAL &&
+//         action.goal.name.toLowerCase().includes('bitcoin')
+//     ) {
+//         return alert('Nope. Bitcoin no allowed.');
+//     }
+
+//     return store.dispatch(action);
+// };
+
+const checker = (store) => (next) => (action) => {
+    if (
+        action.type === ADD_TODO &&
+        action.todo.name.toLowerCase().includes('bitcoin')
+    ) {
+        return alert('Nope. Bitcoin no allowed.');
+    }
+
+    if (
+        action.type === ADD_GOAL &&
+        action.goal.name.toLowerCase().includes('bitcoin')
+    ) {
+        return alert('Nope. Bitcoin no allowed.');
+    }
+
+    return next(action);
 };
 
-const store = createStore(app);
+const logger = (store) => (next) => (action) => {
+    console.group(action.type);
+
+    console.log('The action:', action);
+
+    const result = next(action);
+
+    console.log('The new state:', store.getState());
+    console.groupEnd();
+};
+
+const store = Redux.createStore(
+    Redux.combineReducers({ todos, goals }),
+    Redux.applyMiddleware(checker, logger)
+);
 
 store.subscribe(() => {
     const { goals, todos } = store.getState();
