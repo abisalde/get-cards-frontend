@@ -26,7 +26,7 @@ app.get('/data', (request, response) => {
         .then((json) => response.json(json));
 });
 
-const PORT = 5002;
+const PORT = 5000;
 app.listen(PORT, () => {
     console.log(`app listening on port ${PORT}`);
 });
